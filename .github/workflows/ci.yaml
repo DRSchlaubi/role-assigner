@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest, ubuntu-24.04-arm, windows-11-arm]
+        os: [ubuntu-latest, windows-latest, macos-latest, windows-11-arm]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
@@ -44,15 +44,10 @@ jobs:
         with:
           name: native-image-ubuntu-24.04-arm
           path: linux-arm64
-      - uses: actions/download-artifact@v5
-        with:
-          name: native-image-windows-11-arm
-          path: windows-arm64
       - name: Rename files
         run: |
           mkdir release_files
           mv windows-amd64/role-assigner.exe release_files/role-assigner-windows-amd64.exe
-          mv windows-arm64/role-assigner.exe release_files/role-assigner-windows-arm64.exe
           mv linux-amd64/role-assigner release_files/role-assigner-linux-amd64
           mv linux-arm64/role-assigner release_files/role-assigner-linux-arm64
           mv macos/role-assigner release_files/role-assigner-macos-arm64
