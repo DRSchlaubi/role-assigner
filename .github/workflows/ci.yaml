@@ -45,7 +45,7 @@ jobs:
           path: macos
       - uses: actions/download-artifact@v5
         with:
-          name: native-image-linux-latest
+          name: native-image-ubuntu-latest
           path: linux-amd64
       - uses: actions/download-artifact@v5
         with:
