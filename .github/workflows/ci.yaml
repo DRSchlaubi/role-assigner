@@ -60,7 +60,6 @@ jobs:
           mv macos/role-assigner release_files/role-assigner-macos-arm64
       - name: Release
         uses: softprops/action-gh-release@v2
-        if: github.ref_type == 'tag'
         with:
           files: release_files/*
           tag_name: ${{ github.run_number }}
