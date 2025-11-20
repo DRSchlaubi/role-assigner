@@ -26,7 +26,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v5
       - run: ./gradlew nativeCompile
         env:
-          GRADLE_OPTS: ${{ runner.temp }}
+          GRADLE_OPTS: -Djava.io.tmpdir=${{ runner.temp }}
       - uses: actions/upload-artifact@v5
         with:
           name: native-image-${{ matrix.os }}
