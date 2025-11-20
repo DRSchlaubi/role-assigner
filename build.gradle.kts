@@ -32,6 +32,10 @@ graalvmNative {
             mainClass = "dev.schlaubi.role_assigner.LauncherKt"
             jvmArgs.add("--enable-native-access=ALL-UNNAMED")
 
+            javaLauncher = javaToolchains.launcherFor {
+                vendor = JvmVendorSpec.matching("Oracle Corporation")
+            }
+
             resources {
                 includedPatterns.add("logback.xml")
             }
