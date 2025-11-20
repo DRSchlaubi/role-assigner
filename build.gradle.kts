@@ -34,6 +34,7 @@ graalvmNative {
 
             javaLauncher = javaToolchains.launcherFor {
                 vendor = JvmVendorSpec.matching("Oracle Corporation")
+                languageVersion = JavaLanguageVersion.of(25)
             }
 
             resources {
