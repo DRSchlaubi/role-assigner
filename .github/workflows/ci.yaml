@@ -25,6 +25,8 @@ jobs:
           java-version: 21
       - uses: gradle/actions/setup-gradle@v5
       - run: ./gradlew nativeCompile
+        env:
+          GRADLE_OPTS: ${{ runner.temp }}
       - uses: actions/upload-artifact@v5
         with:
           name: native-image-${{ matrix.os }}
